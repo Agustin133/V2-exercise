@@ -1,6 +1,5 @@
 import { Response } from 'express';
 
-
 const handleError = (err: unknown, res: Response): void => {
     console.error(err);
     if (err instanceof Error) {

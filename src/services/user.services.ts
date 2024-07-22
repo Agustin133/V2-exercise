@@ -67,40 +67,17 @@ class User {
         }
     };
 
-    // async transferCredits(payload: { id: string, id_2: string, creditos: number }) {
-    //     this.validateCredits(payload.creditos);
-
-    //     const user_1 = await this.getUser(payload.id);
-    //     const user_2 = await this.getUser(payload.id_2);
-
-    //     if (!user_1) {
-    //         throw new Error(`User with id ${payload.id} does not exist.`);
-    //     }
-
-    //     if (!user_2) {
-    //         throw new Error(`User with id ${payload.id_2} does not exist.`);
-    //     }
-
-    //     if (user_1.creditos < payload.creditos) {
-    //         throw new Error(`User with id ${payload.id} does not have enough credits. Available credits: ${user_1.creditos}`);
-    //     }
-
-    //     user_1.creditos -= payload.creditos;
-    //     user_2.creditos += payload.creditos;
-
-    //     await user_1.save();
-    //     await user_2.save();
-
-    //     return { success: true, message: 'Credits transferred successfully.' };
-
-    // }
     async transferCredits(payload: { id: string, id_2: string, creditos: number }) {
         try {
             this.validateCredits(payload.creditos);
     
             const user_1 = await this.getUser(payload.id);
             const user_2 = await this.getUser(payload.id_2);
-    
+
+            if(payload.id === payload.id_2){
+                throw new Error('You can not transfer to a user with the same id');
+            }   
+
             if (!user_1) {
                 throw new Error(`User with id ${payload.id} does not exist.`);
             }
@@ -131,8 +108,8 @@ class User {
             return { success: true, message: 'Credits transferred successfully.' };
         } catch (err) {
             throw err;
-        }
-    }
+        };
+    };
 
 }
 

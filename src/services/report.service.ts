@@ -46,8 +46,8 @@ class Report {
                 {
                     $group: {
                         _id: { senderId: '$senderId', receiverId: '$receiverId' },
-                        totalCreditsSent: { $sum: '$credits' },  // Correct summation
-                        totalCreditsReceived: { $sum: '$credits' },  // Correct summation
+                        totalCreditsSent: { $sum: '$credits' },
+                        totalCreditsReceived: { $sum: '$credits' },
                     },
                 },
                 {

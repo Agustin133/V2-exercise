@@ -80,7 +80,7 @@ export const handleFileUpload = async (req: Request, res: Response) => {
                 res.status(500).send({ error: err.message });
             } else {
                 res.status(500).send({ error: 'Unknown error occurred' });
-            }
-        }
+            };
+        };
     });
 };
