@@ -31,8 +31,7 @@ This application is designed to manage user credit transactions and generate rep
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Running the Application](#running-the-application)
-- [Endpoints](#endpoints)
-- [Generating Reports](#generating-reports)
+- [Postman collection](#postman-collection)
 
 ## Installation
 
